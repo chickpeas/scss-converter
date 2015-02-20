@@ -52,8 +52,9 @@ function sassifyCss(str, options) {
     ast = css.parse(str, options);
     console.log(ast.stylesheet.rules[0]);
     sassifyNode(ast.stylesheet);
-    fs.mkdir('output', '0755');
-    fs.createReadStream('scss/_mixins.scss').pipe(fs.createWriteStream('output/_mixins.scss'));
+    if (fs.existsSync('/output')) {
+        fs.mkdir('output', '0755');
+    } fs.createReadStream('scss/_mixins.scss').pipe(fs.createWriteStream('output/_mixins.scss'));
     createVariableFile(SASS_PROPERTIES);
     newSassFile +=  css.stringify(ast, options);
     fs.writeFileSync('output/sass-file.scss', newSassFile);
