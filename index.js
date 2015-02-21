@@ -1,7 +1,7 @@
 var fs = require('fs');
 var sass = require('./sassify');
 
-var variableFile, sassedFile;
+var variableFile;
 
 var cssfile = fs.readFileSync(process.argv[2], 'utf-8');
 
