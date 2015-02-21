@@ -6,27 +6,17 @@ to run it
 ```
 node index /path/to/file.css
 ```
-
-this will replace color in CSS properties:
-
+SCSS converter will create a /output folder with 
 ```
-color
-background
-border
+_mixins.scss
+_variables.scss
+sass-file.scss
 ```
-
-and also replace border-radius and box-shadow with
+in sass-file.scss all color value in background and color properties will be replaced,
+SCSS converter also replace border-radius and box-shadow with
 ```css
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
+@include border-radius($radius)
 
-@mixin box-shadow($shadow) {
-  -webkit-box-shadow: $shadow;
-     -moz-box-shadow:$shadow;
-     -box-shadow: $shadow;
-}
+@include box-shadow($shadow)
 ```
+
