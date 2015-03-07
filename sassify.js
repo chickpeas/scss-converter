@@ -48,7 +48,7 @@ Identity.prototype.include = function (node) {
 
 function sassifyCss(str, options) {
     var newSassFile, ast, sassvar;
-    newSassFile = '@include \'_mixins.scss\';\n@include \'_variables.scss\';\n';
+    newSassFile = '@import \'_mixins.scss\';\n@import \'_variables.scss\';\n';
     ast = css.parse(str, options);
     console.log(ast.stylesheet.rules[0]);
     sassifyNode(ast.stylesheet);
